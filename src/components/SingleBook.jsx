@@ -5,8 +5,10 @@ import {Component} from 'react'
 class SingleBook extends Component{
 
     state = {
-
-        selected:false
+        
+        selectId: '',
+        selected:false,
+        buttonselect:false
     }
 
     render(){
@@ -15,34 +17,59 @@ class SingleBook extends Component{
             <Row className="justify-content-center mt-3"> 
              
              {this.props["name"].map ((book,index) => ( 
-                <Card 
-                id={"book.asin"}
+                <Card
+                id= {book["asin"]}
                 className="mt-3 mx-3" 
-                key={index}  
-                style={{ width: '14rem'}}>
-                <Card.Img variant="top" src={book.img} />
-                <Card.Body>
-                    <Card.Title>{book.title}</Card.Title>
+                key={index}
+                style={{width:'14rem', height:'35rem'}}  
+                >
+                <Card.Img 
+                id= {book["asin"]}
+                onClick={(e)=> {
+                    this.setState({ selectId: e.target.id}) 
+                    console.log(e.target.id)
+                }}
+                style={{
+                    height: (this.state.selectId === book['asin'])? '19rem':'20rem'
+                }}
+                variant="top" 
+                src={book.img} 
+                />
+                <Card.Body style={{position: 'relative'}}>
+                    <Card.Title
+                    style={{fontSize:'15px'}}                    
+                    >{book.title}</Card.Title>
                     <Card.Text>
-                    <p>{book.category}</p> 
-                    <span onMouseOver={(e)=>{
+                    <p className="text-center">{book.category}</p> 
+                    <span
+                    className="text-center"
+                    style={{position:'absolute', bottom:'65px', left:'40%'}} 
+                    onMouseOver={(e)=>{
                         e.target.innerText = 'Discount 50%'
                     }}
                     onMouseOut={(e)=>{
-                        e.target.innerText = book.price
-                    }}>{book.price}</span>
+                        e.target.innerText = book.price  + ' $'
+                    }}>{book.price} $</span>
                     </Card.Text>
-                    <Button onClick={(e)=>{
-                    e.target.innerText = 'Bought'
-                    return this.setState({selected:true}) 
-             }   
-               } 
-               variant="primary">Buy</Button>
+                    <Button
+                    style={{position:'absolute', bottom:'10px', left:'35%'}}
+                    id= {book['asin']} 
+                    onClick={(e)=>{
+                        this.setState({selected: !this.state.selected})
+                        if(!this.state.selected){
+                            e.target.innerText = 'Bought'
+                        }
+                        else{
+                            e.target.innerText = 'Buy'
+                        }
+                    }
+                    }
+                    variant="primary">{'Buy'}</Button>
                 </Card.Body>
                 </Card>))
                 }
-                </Row>
-                </Container>
+            </Row>
+            </Container>
         )
     }
  
