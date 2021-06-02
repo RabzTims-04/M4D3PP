@@ -15,7 +15,6 @@ class SingleBook extends Component{
             <Row className="justify-content-center mt-3"> 
              
              {this.props["name"].map ((book,index) => ( 
-                // this.setState={selected: book}
                 <Card 
                 id={"book.asin"}
                 className="mt-3 mx-3" 
