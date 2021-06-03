@@ -1,5 +1,6 @@
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Row, Col, Container } from 'react-bootstrap'
 import { useState } from 'react'
+import AddComment from './AddComment'
 
 const ModalTemplate = (props)=> {
     const [show, setShow] = useState(false);
@@ -10,21 +11,28 @@ const ModalTemplate = (props)=> {
     return (
       <>
         <Button variant="primary" onClick={handleShow}>
-          Launch demo modal
+          Add Comments
         </Button>
   
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Comments</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Container>
+          <Row className="justify-content-center text-center mt-3">
+         <Col xs={12} md={6}>
+         <AddComment bookId={props['bookId']}/>
+         </Col>
+            </Row>
+          </Container>
+         
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            {/* <Button variant="primary" onClick={handleClose}>
               Save Changes
-            </Button>
+            </Button> */}
           </Modal.Footer>
         </Modal>
       </>

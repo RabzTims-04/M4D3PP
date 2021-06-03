@@ -7,7 +7,7 @@ class AddComment extends Component{
         addComment:{
             comment:'',
             rate:'',
-            elementId:''
+            elementId:this.props['bookId']
         }
     }
 
@@ -58,7 +58,7 @@ render(){
     return (
         <>
         <h6>Add Comments</h6>
-        <Form className="mb-5" onSubmit={(e) => this.submitComment(e)}>
+        <Form className="mb-5 text-center " onSubmit={(e) => this.submitComment(e)}>
                     <Form.Group>
                         <Form.Label>Comment</Form.Label>
                         <Form.Control
@@ -69,6 +69,7 @@ render(){
                             onChange={this.inputChange}
                         />
                     </Form.Group>
+                    <div className="d-flex">
                     <Form.Group>
                         <Form.Label>Ratng 1-5</Form.Label>
                         <Form.Control
@@ -89,6 +90,8 @@ render(){
                             onChange={e => this.inputChange(e)}
                         />
                     </Form.Group>
+                    </div>
+                    
                     <Button variant="primary" type="submit">
                         Submit
                 </Button>

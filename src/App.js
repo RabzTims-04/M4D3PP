@@ -18,11 +18,11 @@ function App() {
   return (
     <div>
       < ModalTemplate />
-      <Row className="justify-content-center mt-3">
+      {/* <Row className="justify-content-center mt-3">
           <Col xs={12} md={6}>
               <AddComment/>
           </Col>
-        </Row>
+        </Row> */}
       <WarningSign title="bookstore"/>
       <MyBadge text="Badge" color="danger"/>
       <BookList fantasy={fantasybooks} history={historybooks} horror={horrorbooks} romance={romancebooks} scifi={scifibooks}/>           

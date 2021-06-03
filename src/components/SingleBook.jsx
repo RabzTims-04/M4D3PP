@@ -2,6 +2,7 @@
 import {Container, Row, Card} from 'react-bootstrap'
 import {Component} from 'react'
 import CommentArea from './CommentArea'
+import ModalTemplate from './ModalTemplate'
 
 
 class SingleBook extends Component{
@@ -70,6 +71,10 @@ class SingleBook extends Component{
                     </Card.Text>
 
                 </Card.Body>
+                <div id={book['asin']} /* onClick={(e)=>{const bookId = e.target.id }} */>
+                < ModalTemplate bookId={book['asin']}/>
+                </div>
+                
                 </Card>))
                 
                 }
