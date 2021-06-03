@@ -53,6 +53,14 @@ class CommentArea extends Component{
                 }
             })
             console.log(response);
+            if(response.ok){
+                alert('oh! deleted')
+            }
+                else{
+                    alert('nothing deleted')
+                }
+
+            
 
     } 
 
