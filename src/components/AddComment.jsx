@@ -52,17 +52,18 @@ class AddComment extends Component{
             console.log(error);
         }
     }
+    
 
 render(){
     return (
         <>
-        <h3>Add Comments</h3>
+        <h6>Add Comments</h6>
         <Form className="mb-5" onSubmit={(e) => this.submitComment(e)}>
                     <Form.Group>
                         <Form.Label>Comment</Form.Label>
                         <Form.Control
                             as="textarea"
-                            rows={3}
+                            rows={1}
                             value={this.state.addComment.comment}
                             id="comment"
                             onChange={this.inputChange}
@@ -75,7 +76,6 @@ render(){
                             placeholder="Rate"
                             value={this.state.addComment.rate}
                             id="rate"
-                            // with value I'm reflecting into the input what I have into the state
                             onChange={e => this.inputChange(e)}
                         />
                     </Form.Group>

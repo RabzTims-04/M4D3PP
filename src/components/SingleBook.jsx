@@ -1,5 +1,5 @@
 
-import {Container, Row, Card, Button} from 'react-bootstrap'
+import {Container, Row, Card} from 'react-bootstrap'
 import {Component} from 'react'
 import CommentArea from './CommentArea'
 
@@ -11,23 +11,7 @@ class SingleBook extends Component{
         selectId: '',
         selected:false,
         buttonselect:false,
-        elementId:'',
-        deleteId:''
-    }
-
-    deleteComment = async (id)=>{
-        const url = 'https://striveschool-api.herokuapp.com/api/comments/' + id
-        const key= "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4YTk5YzE2ZWY2MDAwMTVjZWQwNWUiLCJpYXQiOjE2MjI3MTQ3ODAsImV4cCI6MTYyMzkyNDM4MH0.-Wnp1TVPbpihQKGNhWBtiCGVL0J9wSxFlGgsbMfh4CA"
-
-        if(window.confirm('are u sure')){
-            const response = await fetch (url,{
-                method : 'DELETE',
-                headers :{
-                    'Authorization' : key  
-                }
-            })
-            console.log(response);
-        }
+        elementId:''
     }
 
     render(){
@@ -67,8 +51,6 @@ class SingleBook extends Component{
                 style={{position: 'relative'}}>
 
                     {this.state.elementId === book['asin'] && <CommentArea elementId={this.state.elementId}/>}
-                
-
                     <Card.Title
                     style={{fontSize:'15px'}}                    
                     >{book.title}
@@ -86,35 +68,6 @@ class SingleBook extends Component{
                         e.target.innerText = book.price  + ' $'
                     }}>{book.price} $</span>
                     </Card.Text>
-
-                    <Button
-                    style={{position:'absolute', bottom:'10px', left:'35%'}}
-                    variant="primary"
-                    id= {book['asin']} 
-                    onClick={()=>this.deleteComment(book['asin'])}/* {(e)=>{
-                        this.setState({deleteId: e.target.id}, ()=>{
-                            /* this.state.deleteId === book['asin'] && <DeleteComment elementId={this.*/
-                    >{'Delete'}
-                    </Button>
-
-                    {/* {this.state.deleteId === book['asin'] && <DeleteComment elementId={this.state.deleteId}/>
-                        } */}
-
-                   {/*  <Button
-                    style={{position:'absolute', bottom:'10px', left:'35%'}}
-                    id= {book['asin']} 
-                    onClick={(e)=>{
-                        this.setState({selected: !this.state.selected})
-                        if(!this.state.selected){
-                            e.target.innerText = 'Bought'
-                        }
-                        else{
-                            e.target.innerText = 'Buy'
-                        }
-                    }
-                    }
-                    variant="primary">{'Buy'}
-                    </Button> */}
 
                 </Card.Body>
                 </Card>))

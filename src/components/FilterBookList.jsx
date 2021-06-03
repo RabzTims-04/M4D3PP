@@ -21,7 +21,6 @@ class FilterBooklist extends Component {
     searchBooks =(e)=>{
         e.preventDefault()
         console.log(this.props['book'].filter(book => book["title"].toLowerCase().includes(this.state.search)).map(filterBook => (<SingleBook name={filterBook}/> )))
-        // fantasyBooks.filter(book => book["title"].includes(this.state.search)).map(filterBook => (<SingleBook name={filterBook}/> ))
         console.log(this.state.search.length);        
         let filterBooks = this.props['book'].filter(book => book["title"].toLowerCase().includes(this.state.search))
         console.log(filterBooks)

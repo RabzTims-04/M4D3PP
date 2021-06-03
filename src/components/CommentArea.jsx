@@ -1,18 +1,20 @@
  import { Component } from 'react'
- import { ListGroup } from 'react-bootstrap'
+ import { ListGroup, Button, Row, Col } from 'react-bootstrap'
+ import AddComment from './AddComment';
 
 class CommentArea extends Component{
 
     state = {
         commentArr : []
     }
+    
 
     
     componentDidMount = async () =>{
         const url = 'https://striveschool-api.herokuapp.com/api/comments/' + this.props['elementId']
-      /*   console.log(url); */
-        console.log(this.props['elementId']);
         const key= "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4YTk5YzE2ZWY2MDAwMTVjZWQwNWUiLCJpYXQiOjE2MjI3MTQ3ODAsImV4cCI6MTYyMzkyNDM4MH0.-Wnp1TVPbpihQKGNhWBtiCGVL0J9wSxFlGgsbMfh4CA"
+        console.log(this.props['elementId']);
+       
 
         try {
             let response =await fetch (url,{
@@ -22,8 +24,9 @@ class CommentArea extends Component{
             })
             /* console.log(response); */
             const comments = await response.json()
-            console.log(comments);
+            console.log(comments);           
             this.setState({
+                ...this.state,
                 commentArr : comments
             })
          
@@ -33,6 +36,26 @@ class CommentArea extends Component{
             
     }
 
+    
+
+     deleteComment = async (id)=>{
+         console.log(id);
+
+        const url = 'https://striveschool-api.herokuapp.com/api/comments/' + id
+        const key= "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4YTk5YzE2ZWY2MDAwMTVjZWQwNWUiLCJpYXQiOjE2MjI3MTQ3ODAsImV4cCI6MTYyMzkyNDM4MH0.-Wnp1TVPbpihQKGNhWBtiCGVL0J9wSxFlGgsbMfh4CA"
+        console.log(url);
+      
+        
+            const response = await fetch (url,{
+                method : 'DELETE',
+                headers :{
+                    'Authorization' : key  
+                }
+            })
+            console.log(response);
+
+    } 
+
    refresh =()=>{
          window.location.reload();
     }
@@ -40,12 +63,12 @@ class CommentArea extends Component{
     render(){
         return (
             <>
-          {/*   <Button onClick={this.refresh}>Hide</Button> */}
             {
             (this.state.commentArr.length === 0)
-                 ?<p>No Comments</p>
+                 ?<p>no comment</p>
                  :this.state.commentArr.map((comment, i) =>
-                <>
+                 <>
+
                     <ListGroup
                     onClick={this.refresh}
                      key={i}>
@@ -56,6 +79,13 @@ class CommentArea extends Component{
                        rate = {comment.rate}
                        </ListGroup.Item>
                     </ListGroup>
+                    <Button
+                    style={{position:'absolute', bottom:'10px', left:'35%'}}
+                    variant="primary"
+                    id= {comment['_id']} 
+                     onClick ={(e)=> this.deleteComment(e.target.id) }>
+                    Delete</Button>
+                  
                     <hr /> 
                     </>
                  )
