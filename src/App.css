@@ -42,7 +42,7 @@
 }
 
 form{
-  font-size: xx-small;
+  font-size: medium;
 }
 #comment{
   width: 100%;
@@ -98,8 +98,52 @@ form{
   color: white;
 }
 
+.card:hover{
+  transform: translateY(1px);
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(255,61,228,0), 5px 5px 15px 5px rgba(255,61,228,0.29); 
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(255,61,228,0), 5px 5px 15px 5px rgba(255,61,228,0.29);
+}
+
 .btn-primary{
  background-color: transparent!important;
  border-color:violet;
-color: white;
+ color: white;
+}
+
+.list-group{
+  background-color: transparent;
+  background: transparent;
+  text-align: center;
+}
+
+.list-group-item{
+  background-color: transparent;
+}
+
+label{
+  color: white;
+}
+
+.modal-content{
+  background-color: transparent;
+}
+
+.modal-title{
+  color: violet;
+}
+
+.close{
+  color: red;
+}
+
+#searchbtn:hover{
+  border-color: blue;
+  background-color: transparent;
+  color: blue;
+}
+
+#searchbtn{
+  border-color: violet;
+  background-color: transparent;
+  color: violet;
 }

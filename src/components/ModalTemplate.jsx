@@ -26,14 +26,14 @@ const ModalTemplate = (props)=> {
             </Row>
         
          
-          <Modal.Footer>
+         {/*  <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            {/* <Button variant="primary" onClick={handleClose}>
+             <Button variant="primary" onClick={handleClose}>
               Save Changes
-            </Button> */}
-          </Modal.Footer>
+            </Button> 
+          </Modal.Footer> */}
         </Modal>
       </>
     );

@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
+import WarningSign from './WarningSign'
 
 class AddComment extends Component{
 
@@ -45,7 +46,7 @@ class AddComment extends Component{
                     }
                 })
             }else{
-                alert('Oh No!! :(')
+                alert('something is wrong')
             }
             
         } catch (error) {
@@ -72,7 +73,7 @@ render(){
                     </Form.Group>
                     <div className="d-flex">
                     <Form.Group>
-                        <Form.Label>Ratng 1-5</Form.Label>
+                        <Form.Label>Rating 1-5</Form.Label>
                         <Form.Control
                             required
                             type="number"

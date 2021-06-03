@@ -84,7 +84,7 @@ class CommentArea extends Component{
                           {comment.comment}
                        </ListGroup.Item>
                        <ListGroup.Item >
-                       rate = {comment.rate}
+                       Rating = {comment.rate}
                        </ListGroup.Item>
                     </ListGroup>
                     <Button
