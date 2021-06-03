@@ -51,7 +51,8 @@ class SingleBook extends Component{
                 }} 
                 style={{position: 'relative'}}>
 
-                    {this.state.elementId === book['asin'] && <CommentArea elementId={this.state.elementId}/>}
+                    {this.state.elementId === book['asin']?<CommentArea elementId={this.state.elementId}/>:
+                    <>
                     <Card.Title
                     style={{fontSize:'15px'}}                    
                     >{book.title}
@@ -70,7 +71,10 @@ class SingleBook extends Component{
                     }}>{book.price} $</span>
                     </Card.Text>
 
-                </Card.Body>
+                
+                </>
+            }
+            </Card.Body>
                 <div className="text-center" id={book['asin']}>
                 < ModalTemplate bookName={book['title']} bookId={book['asin']}/>
                 </div>

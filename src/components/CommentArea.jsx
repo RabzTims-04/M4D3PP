@@ -73,7 +73,7 @@ class CommentArea extends Component{
             <>
             {
             (this.state.commentArr.length === 0)
-                 ?<p>no comment</p>
+                 ?<p className="text-center">Be First to Comment</p>
                  :this.state.commentArr.map((comment, i) =>
                  <>
 
