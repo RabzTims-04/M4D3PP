@@ -1,4 +1,4 @@
-import {Form, FormControl, Button, Container} from 'react-bootstrap'
+import {Form, FormControl, Button, Container, Row, Col} from 'react-bootstrap'
 import {Component} from 'react'
 import SingleBook from './SingleBook'
 
@@ -37,15 +37,22 @@ class FilterBooklist extends Component {
     }
 
     render() {
-      return (<>  <Form inline onSubmit={(e) => this.searchBooks(e)}>
-                    <FormControl id="search" 
-                        type="text" 
-                        value={this.state.search} 
-                        placeholder="Search" 
-                        className="mr-sm-2 my-3 ml-5"  
-                        onChange={e => this.inputChange(e)}/>
-                    <Button variant="outline-success" type="submit">Search</Button>
-                  </Form>
+      return (<>  <Container>
+                    <Row className="justify-content-center">
+                        <Col md={6}>
+                            <Form className="text-center" inline onSubmit={(e) => this.searchBooks(e)}>
+                            <FormControl id="search" 
+                                type="text" 
+                                value={this.state.search} 
+                                placeholder="Search" 
+                                className="mr-sm-2 my-3 ml-auto"  
+                                onChange={e => this.inputChange(e)}/>
+                            <Button className="mr-auto" variant="outline-success" type="submit">Search</Button>
+                        </Form>
+                        </Col>
+                    </Row>
+                 </Container>
+                   
                   <Container fluid className="search-books">
                         {this.state.books && <SingleBook name ={this.state.books}/>}
                   </Container>
