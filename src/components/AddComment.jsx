@@ -62,6 +62,7 @@ render(){
                     <Form.Group>
                         <Form.Label>Comment</Form.Label>
                         <Form.Control
+                            required
                             as="textarea"
                             rows={1}
                             value={this.state.addComment.comment}
@@ -73,6 +74,7 @@ render(){
                     <Form.Group>
                         <Form.Label>Ratng 1-5</Form.Label>
                         <Form.Control
+                            required
                             type="number"
                             placeholder="Rate"
                             value={this.state.addComment.rate}

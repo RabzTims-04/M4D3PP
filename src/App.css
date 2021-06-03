@@ -53,14 +53,14 @@ form{
   font-size: xx-small;
 }
 #comment{
-  width: 80%;
+  width: 100%;
 }
  #rate{
    padding: 1rem 1rem;
-   width: 50%;
+   width: 80%;
  }
 
  #elementId{
   padding: 1rem 1rem;
-  width: 80%;
+  width: 100%;
  }
