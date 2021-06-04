@@ -96,6 +96,7 @@ form{
   background-image: url('../src/assets/giphy.gif');
      background-repeat: repeat;
   color: white;
+  transition: transform 300ms;
 }
 
 .card:hover{

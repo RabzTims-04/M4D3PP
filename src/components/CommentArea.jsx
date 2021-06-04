@@ -1,6 +1,6 @@
  import { Component } from 'react'
- import { ListGroup, Button, Row, Col } from 'react-bootstrap'
- import AddComment from './AddComment';
+ import { ListGroup, Button } from 'react-bootstrap'
+
 
 class CommentArea extends Component{
 
@@ -55,9 +55,11 @@ class CommentArea extends Component{
             console.log(response);
             if(response.ok){
                 alert('oh! deleted')
+                 this.refresh() 
             }
                 else{
                     alert('nothing deleted')
+                    this.refresh()
                 }
 
             
@@ -73,22 +75,22 @@ class CommentArea extends Component{
             <>
             {
             (this.state.commentArr.length === 0)
-                 ?<p className="text-center">Be First to Comment</p>
+                 ?<p onClick={this.refresh} className="text-center">Be First to Comment</p>
                  :this.state.commentArr.map((comment, i) =>
                  <>
 
                     <ListGroup
-                    onClick={this.refresh}
-                     key={i}>
+                    /* onClick={this.refresh} */
+                     key={comment['_id']}>
                        <ListGroup.Item >
-                          {comment.comment}
+                         User Comments: {comment.comment}
                        </ListGroup.Item>
                        <ListGroup.Item >
-                       Rating = {comment.rate}
+                       Rating: {comment.rate}
                        </ListGroup.Item>
                     </ListGroup>
                     <Button
-                    style={{position:'absolute', bottom:'10px', left:'35%'}}
+                    style={{position:'absolute', bottom:'10px', left:'19%', width:'140px'}}
                     variant="primary"
                     id= {comment['_id']} 
                      onClick ={(e)=> this.deleteComment(e.target.id) }>

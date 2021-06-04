@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import WarningSign from './WarningSign'
 
 class AddComment extends Component{
 
@@ -53,6 +52,10 @@ class AddComment extends Component{
             console.log(error);
         }
     }
+
+    refresh =()=>{
+        window.location.reload();
+   }
     
 
 render(){

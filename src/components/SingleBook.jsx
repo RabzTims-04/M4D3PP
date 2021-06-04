@@ -43,6 +43,8 @@ class SingleBook extends Component{
                 variant="top" 
                 src={book.img} 
                 />
+                 {this.state.selectId === book['asin']?<CommentArea elementId={this.state.selectId}/>: 
+                 
                 <Card.Body
                 id= {book['asin']}  
                 onClick={(e)=>{
@@ -51,8 +53,8 @@ class SingleBook extends Component{
                 }} 
                 style={{position: 'relative'}}>
 
-                    {this.state.elementId === book['asin']?<CommentArea elementId={this.state.elementId}/>:
-                    <>
+                    {/* {this.state.elementId === book['asin']?<CommentArea elementId={this.state.elementId}/>: */}
+                    
                     <Card.Title
                     style={{fontSize:'15px'}}                    
                     >{book.title}
@@ -72,9 +74,10 @@ class SingleBook extends Component{
                     </Card.Text>
 
                 
-                </>
-            }
+               
+            
             </Card.Body>
+    }
                 <div className="text-center" id={book['asin']}>
                 < ModalTemplate bookName={book['title']} bookId={book['asin']}/>
                 </div>
